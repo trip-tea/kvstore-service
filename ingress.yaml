@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: key-value-store-ingress
+spec:
+  rules:
+    - host: keyvaluestore.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: key-value-store-service
+                port:
+                  number: 80
